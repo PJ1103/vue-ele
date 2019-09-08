@@ -8,6 +8,10 @@
       background-color="#001529"
       text-color="#ffffffa6">
 
+      <div class="logo">
+        <img src="../../assets/gun.jpg" alt="">
+      </div>
+
       <router-link to="/home">
         <el-menu-item index="1">
           <i class="el-icon-s-home"></i>
@@ -15,7 +19,6 @@
         </el-menu-item>
       </router-link>
       
-
       <el-submenu index="2">
         <template slot="title"><i class="el-icon-menu"></i>商品</template>
         <router-link to="/category">
@@ -37,7 +40,6 @@
         </el-menu-item>
       </router-link>
       
-
       <router-link to="/role">
         <el-menu-item index="4">
           <i class="el-icon-user"></i>
@@ -55,6 +57,18 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  .el-aside {
+    .el-menu {
+      .logo {
+        height: 80px;
+        text-align: center;
+        img {
+          width: 30%;
+        }
+      }
+    }
+  }
+
 
 
 a:link{

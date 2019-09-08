@@ -6,6 +6,17 @@ module.exports = {
         'vue$': 'vue/dist/vue.esm.js'
       }
     }
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   }
   
 }
