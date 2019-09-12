@@ -15,7 +15,7 @@
           <el-form-item>
             <el-button type="primary" size="medium" @click="handleSearch">搜索</el-button>
           </el-form-item>
-        </el-form>
+        </el-form> 
         <el-button class="add-btn" type="primary">
           <i class="el-icon-plus el-icon--left"></i>添加产品
         </el-button>
