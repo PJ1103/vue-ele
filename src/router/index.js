@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const Product = () => import('../views/product/index.vue')
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -28,8 +29,12 @@ const router = new Router({
           component: resolve => require(['@/views/category'], resolve)
         },
         {
-          path: 'product',
-          component: resolve => require(['@/views/product'], resolve)
+          path: 'product/index',
+          component: Product,
+        },
+        {
+          path: 'product/saveupdate',
+          component: resolve => require(['@/views/saveUpdate'], resolve)
         }
       ]
     }

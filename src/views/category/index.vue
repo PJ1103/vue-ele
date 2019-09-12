@@ -71,7 +71,6 @@
         @current-change="currentChange($event)">
       </el-pagination>
       
-
       <!-- 添加品类 -->
       <el-dialog title="添加分类" :visible.sync="showAddCategory">
         <el-form :model="form" ref="form" label-position="top" :rules="rules">
@@ -105,6 +104,7 @@
       </el-dialog>
 
     </el-card>
+  
   </el-main>
 </template>
 
@@ -174,7 +174,7 @@ export default {
           const { name, id } = this.form
           const result = await reqAddCategory({categoryName: name, parentId: id})
           if (result.status === 0) {
-            this.categoryData.push(result.data)
+            id === 0 ? this.categoryData.push(result.data) : this.subCategoryData.push(result.data)
             this.showAddCategory = false
           } else {
             console.log(result.msg);
@@ -216,13 +216,19 @@ export default {
     currentChange(page) {
       this.currentPage = page
       this.getPageData(page)
-      // console.log(page);
     }
   },
   watch: {
     categoryData: {
       handler() {
         this.getPageData(this.currentPage)
+      },
+      deep: true
+    },
+    subCategoryData: {
+      handler() {
+        this.getPageData(this.currentPage1)
+        console.log(1);
       },
       deep: true
     }
