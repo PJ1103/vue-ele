@@ -26,14 +26,15 @@ export default {
   },
   computed: {
     getTitle() {
-      const path = this.$route.path
+      let path = this.$route.path
+      if (path.indexOf('/product') === 0) {
+        path = '/product'
+      }
       switch (path) {
         case '/home':
           return '首页';
         case '/category':
           return '品类管理';
-        case '/category':
-          return '商品管理';
         case '/product':
           return '商品管理';
         case '/role':

@@ -26,7 +26,7 @@
             <i class="el-icon-s-operation"></i>品类管理
           </el-menu-item>
         </router-link>
-        <router-link to="/product">
+        <router-link to="/product/index">
           <el-menu-item index="2-2">
             <i class="el-icon-setting"></i>商品管理
           </el-menu-item>

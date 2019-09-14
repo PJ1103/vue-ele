@@ -20,6 +20,8 @@ export default {
   components: {
     LeftNav,
     Header
+  },
+  mounted () {
   }
 }
 </script>

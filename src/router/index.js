@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const Product = () => import('../views/product/index.vue')
 Vue.use(Router)
 
 const router = new Router({
@@ -30,10 +31,10 @@ const router = new Router({
         {
           path: 'product',
           component: resolve => require(['@/views/product'], resolve),
-          redirect: '/product/index',
-          children: [
-            { path: 'index', component: resolve => require(['@/views/product/Index/index'], resolve) }
-          ]
+        },
+        {
+          path: 'product/saveupdate',
+          component: resolve => require(['@/views/saveUpdate'], resolve)
         }
       ]
     }

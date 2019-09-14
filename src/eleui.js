@@ -155,3 +155,5 @@ Vue.use(PageHeader);
 Vue.use(CascaderPanel);
 
 Vue.use(Loading.directive);
+
+Vue.prototype.$message = Message;

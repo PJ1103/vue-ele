@@ -1,18 +1,17 @@
 <template>
-  <div id="app">
+  <div>
+    test
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'app'
+  
 }
 </script>
 
-<style scoped>
-#app {
-  height: 100%;
-}  
+<style lang="less" scoped>
+
 </style>
+
