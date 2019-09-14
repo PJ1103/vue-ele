@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Product = () => import('../views/product/index.vue')
+// const Product = () => import('../views/product/index.vue')
 Vue.use(Router)
 
 const router = new Router({

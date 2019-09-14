@@ -1,19 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <router-view>
-
-    </router-view>
-</template>
-
-<script>
-import { reqCategory } from '../../api';
-export default {
-  async mounted () {
-    const result = await reqCategory({ parentId: 0 })
-    console.log(result);
-  }
-
-=======
   <el-main>
     <el-card class="box-card">
       <div slot="header" class="clearfix">
@@ -80,6 +65,7 @@ export default {
        
     </el-card>
   </el-main>
+
 </template>
 
 <script>
@@ -129,14 +115,11 @@ export default {
       }
     }
   }
->>>>>>> 19683b647a2f80d0cc4f82105deb96077b66e515
+
 }
 </script>
 
 <style lang="less" scoped>
-<<<<<<< HEAD
-  
-=======
   .el-main {
     background-color: #F0F2F5;
     .box-card {
@@ -149,5 +132,4 @@ export default {
       }
     }
   }
->>>>>>> 19683b647a2f80d0cc4f82105deb96077b66e515
 </style>
