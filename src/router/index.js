@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -29,7 +29,11 @@ const router = new Router({
         },
         {
           path: 'product',
-          component: resolve => require(['@/views/product'], resolve)
+          component: resolve => require(['@/views/product'], resolve),
+          redirect: '/product/index',
+          children: [
+            { path: 'index', component: resolve => require(['@/views/product/Index/index'], resolve) }
+          ]
         }
       ]
     }

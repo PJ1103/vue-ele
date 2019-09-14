@@ -1,15 +1,20 @@
 <template>
-  <div>
-    商品管理
-  </div>
+    <router-view>
+
+    </router-view>
 </template>
 
 <script>
+import { reqCategory } from '../../api';
 export default {
+  async mounted () {
+    const result = await reqCategory({ parentId: 0 })
+    console.log(result);
+  }
 
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   
 </style>
