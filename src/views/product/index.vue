@@ -63,6 +63,7 @@
         </el-table>
       </template>
        
+      <el-cascader @change="change" :props="props" :options="options"></el-cascader>
     </el-card>
   </el-main>
 
@@ -70,28 +71,48 @@
 
 <script>
 import { reqProduct, reqUpdateState, reqProductSearch, reqCategory } from '../../api'
+let id = 0;
 export default {
   data() {
+    const _this = this
     return {
       searchForm: {
         selectValue: '0',
         searchWord: ''
       },
-      productList: []
+      productList: [],
+      options: [],
+      props: {
+        lazy: true,
+        async lazyLoad (node, resolve) {
+          const { level } = node
+          if (level === 0) {
+            return 
+          }
+          const data = await _this.getCategory(node.value)
+          data.forEach((item) => {
+            item.leaf = level >= 1
+          })
+          resolve(data);
+        }
+      }
     } 
   },
   mounted () {
     // 初始化数据
     this.initProduct()
+    this.getCategory(0)
+    // const arr = ['/category', '/product', '/user', '/role']
+    // const str = JSON.stringify(arr)
+    // localStorage.setItem('role', str)
   },
   methods: {
-     async initProduct() {
+    async initProduct() {
       const result = await reqProduct({ pageNum: 1, pageSize: 4 })
-      console.log(result);
+      // console.log(result);
       if (result.status === 0) {
         this.productList = result.data.list
       }
-      
     },
     // 更新状态
     async updateStatus(row) {
@@ -113,6 +134,25 @@ export default {
       if (result.status === 0) {
         this.productList = result.data.list
       }
+    },
+    async getCategory(id) {
+      const result = await reqCategory( {parentId: id} )
+      console.log(result);
+      if (result.status === 0) {
+        const data = result.data.map((item) => {
+          item.label = item.name
+          item.value = item._id
+          return item
+        })
+        if (id === 0) {
+          this.options = data
+        } else {
+          return data
+        }
+      }
+    },
+    change(a) {
+      console.log(a);
     }
   }
 

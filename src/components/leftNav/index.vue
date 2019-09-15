@@ -26,14 +26,14 @@
             <i class="el-icon-s-operation"></i>品类管理
           </el-menu-item>
         </router-link>
-        <router-link to="/product/index">
+        <router-link to="/product">
           <el-menu-item index="2-2">
             <i class="el-icon-setting"></i>商品管理
           </el-menu-item>
         </router-link>
       </el-submenu>
 
-      <router-link to="/user">
+      <router-link to="/user" v-if="role['/user']">
         <el-menu-item index="3">
           <i class="el-icon-user"></i>
           <span slot="title">用户管理</span>
@@ -52,7 +52,21 @@
 
 <script>
 export default {
-  
+  data() {
+    return {
+      role: {}
+    }
+  },
+  mounted () {
+    const str = localStorage.getItem('role')
+    const arr = JSON.parse(str)
+    const newArr = arr.values()
+    for (const item of newArr) {
+      this.role[item] = 1
+    }
+    console.log(this.role['/role']);
+    
+  }
 }
 </script>
 

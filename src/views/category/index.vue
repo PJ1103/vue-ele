@@ -143,7 +143,7 @@ export default {
   async mounted () {
     const result = await reqCategory({parentId: 0})
     this.categoryData = result.data
-    console.log(this.categoryData)
+    // console.log(this.categoryData)
     this.getPageData(1)
   },
   methods: {

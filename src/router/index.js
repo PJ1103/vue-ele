@@ -5,7 +5,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'hash',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -22,7 +22,8 @@ const router = new Router({
         },
         {
           path: 'role',
-          component: resolve => require(['@/views/role'], resolve)
+          component: resolve => require(['@/views/role'], resolve),
+          meta: {  }
         },
         {
           path: 'category',
